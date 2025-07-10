@@ -1,0 +1,26 @@
+# Temp files
+*.DS_Store
+*.swp
+*.swo
+*.bak
+Thumbs.db
+
+# Git y VCS
+.git/
+.gitignore
+
+# Infrastructure
+.dockerignore
+infra
+Makefile
+README.md
+
+# PHP Cache
+*.php~ 
+*.cache
+*.tmp
+
+# CI/CD, IDEs files
+.idea/
+.vscode/
+*.iml
