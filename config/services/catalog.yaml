@@ -1,0 +1,10 @@
+services:
+  Challenge\Catalog\Infrastructure\:
+    resource: '../../src/Catalog/Infrastructure/'
+    exclude: '../../src/Catalog/Infrastructure/{Entity,Migrations,Kernel.php}'
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Challenge\Catalog\Domain\Repository\ProductRepository:
+    alias: Challenge\Catalog\Infrastructure\Doctrine\Repository\PostgresProductRepository
