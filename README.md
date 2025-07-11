@@ -163,3 +163,5 @@ Or manually:
 ```bash
 docker exec -it challenge-api php bin/phpunit
 ```
+
+![img_4.png](img_4.png)
