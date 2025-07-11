@@ -62,6 +62,10 @@ We can clearly see dependency inversion at play: the domain defines interfaces (
 
 Regarding the API, there is a single use case to search for products.
 This uses the Specification/Criteria pattern to apply filtering logic dynamically based on query parameters like category and price.
+
+To address potential performance issues, a cache system is used to serve data as quickly as possible without querying the database on every request.
+This approach is especially beneficial when dealing with a large number of products and discounts, since applying filtering and discount logic on each request could become expensive.
+
 ---
 
 ## 🧰 Tech Stack
@@ -82,8 +86,8 @@ This uses the Specification/Criteria pattern to apply filtering logic dynamicall
 ### 1. Clone the project
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone git@github.com:rfiallossanchez/mytheresa-challenge.git
+cd mytheresa-challenge
 ```
 
 ### 2. Launch services
