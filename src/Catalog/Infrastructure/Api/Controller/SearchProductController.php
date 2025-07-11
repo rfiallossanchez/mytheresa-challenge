@@ -23,7 +23,7 @@ final class SearchProductController extends AbstractController
     {
         $query = new SearchProductQuery();
         $query->category = $request->query->get('category');
-        $query->priceLessThan = $request->query->get('priceLessThan');
+        $query->priceLessThan = $request->query->getInt('priceLessThan');
         $errors = $validator->validate($query);
 
         if (count($errors) > 0) {

@@ -109,7 +109,7 @@ docker logs challenge-api -f
 
 | Command              | Description                                  |
 |----------------------|----------------------------------------------|
-| `make start`         | 🚀 Start API container                       |
+| `make start-verbose` | 🚀 Start API container                       |
 | `make build`         | 🛠️ Build Docker images                       |
 | `make stop`          | ⛔ Stop all running services                 |
 | `make bash-api`      | 🐚 Enter API container                       |
@@ -127,18 +127,21 @@ docker logs challenge-api -f
 ```bash
 curl http://localhost:8080/products
 ```
+![img.png](img.png)
 
 ### 🔍 Filter by category
 
 ```bash
 curl http://localhost:8080/products?category=boots
 ```
+![img_1.png](img_1.png)
 
 ### 💸 Filter by price
 
 ```bash
 curl http://localhost:8080/products?priceLessThan=80000
 ```
+![img_2.png](img_2.png)
 
 ### 🧪 Combined filter
 
@@ -146,6 +149,7 @@ curl http://localhost:8080/products?priceLessThan=80000
 curl http://localhost:8080/products?category=boots&priceLessThan=80000
 ```
 
+![img_3.png](img_3.png)
 ---
 
 ## 🧪 Running Tests
