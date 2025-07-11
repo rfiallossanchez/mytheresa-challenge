@@ -1,0 +1,18 @@
+services:
+  challenge.redis.provider:
+    class: Redis\Client
+    factory: [ 'Symfony\Component\Cache\Adapter\RedisAdapter', 'createConnection' ]
+    arguments:
+      - 'redis://%redis.host%:%redis.port%/%redis.db%'
+
+  Redis:
+    alias: challenge.redis.provider
+
+  challenge.redis.service:
+    class: Challenge\Shared\Infrastructure\Cache\RedisCacheService
+    arguments:
+      - '@challenge.redis.provider'
+      - '@parameter_bag'
+
+  Challenge\Shared\Domain\Cache\CacheService:
+    alias: Challenge\Shared\Infrastructure\Cache\RedisCacheService

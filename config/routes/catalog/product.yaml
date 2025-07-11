@@ -1,0 +1,4 @@
+get.products:
+  path: /products
+  controller: Challenge\Catalog\Infrastructure\Api\Controller\SearchProductController
+  methods: GET
