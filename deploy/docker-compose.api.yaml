@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  challenge-api:
+    depends_on:
+      - challenge-db
+    build:
+      context: ..
+      dockerfile: ./deploy/Dockerfile.api
+    container_name: challenge-api
+    ports:
+      - "8080:80"
+    volumes:
+      - ../:/var/www/api
+    networks:
+      - app-network
+
+  challenge-db:
+    image: postgres:15
+    container_name: challenge-db
+    restart: always
+    environment:
+      POSTGRES_DB: challenge_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  challenge-cache:
+    image: redis:alpine
+    container_name: challenge-cache
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  pgdata:
