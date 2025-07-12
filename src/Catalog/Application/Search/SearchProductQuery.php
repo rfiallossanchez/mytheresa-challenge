@@ -12,6 +12,5 @@ final class SearchProductQuery
     public ?string $category = null;
 
     #[Assert\Type('integer')]
-    #[Assert\Positive]
     public ?int $priceLessThan = null;
 }

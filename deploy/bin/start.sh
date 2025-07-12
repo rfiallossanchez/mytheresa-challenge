@@ -7,6 +7,8 @@ echo "Starting API Service..."
 # Adding Nginx configuration
 envsubst < ./deploy/nginx/challenge-api.conf > /etc/nginx/sites-available/default
 
+cp ./deploy/php-fpm/php.ini /usr/local/etc/php/php.ini
+
 # Installing dependencies
 composer install --no-interaction --prefer-dist --optimize-autoloader
 
